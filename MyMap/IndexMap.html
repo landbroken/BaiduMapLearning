@@ -96,5 +96,13 @@
     }
     //关闭监听事件，恢复对地图的操作 end
 
+    //坐标反查 start
+    function FindPosition(CurLng, CurLat) {
+        //百度地图API功能，经度，纬度
+        var point = new BMap.Point(CurLng, CurLat);
+        map.centerAndZoom(point, 20);
+    }
+    //坐标反查 end
+
 </script>
 

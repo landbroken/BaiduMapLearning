@@ -25,11 +25,14 @@ namespace MyMap
         //载入百度地图
         private void Form1_Load(object sender, EventArgs e)
         {
-             string str_url = Application.StartupPath + "\\IndexMap.html";  
-             Uri url = new Uri(str_url);
-             webBrowser1.Url = url;
-             webBrowser1.ObjectForScripting = this;
-             timer1.Enabled = true;
+            string str_url = Application.StartupPath + "\\IndexMap.html";
+            Uri url = new Uri(str_url);
+            webBrowser1.Url = url;
+            //屏蔽webBrowser浏览器右键菜单
+            //webBrowser1.IsWebBrowserContextMenuEnabled = false;
+            //修改webbrowser的属性使c#可以调用js方法：
+            webBrowser1.ObjectForScripting = this;
+            timer1.Enabled = true;
         }
 
         //定时刷新
@@ -81,7 +84,19 @@ namespace MyMap
         private void clearMarker_Click(object sender, EventArgs e)
         {
             webBrowser1.Document.InvokeScript("ClearAllMarkers");  
-        } 
+        }
 
+        //坐标反查
+        private void btnFindPosition_Click(object sender, EventArgs e)
+        {
+            //116.380967,39.913285
+            object[] objects = new object[2];
+            //当前经度
+            objects[0] = Convert.ToDouble(textBoxX.Text);
+            //当前纬度
+            objects[1] = Convert.ToDouble(textBoxY.Text);
+            //传值给html中的mapInit函数
+            webBrowser1.Document.InvokeScript("FindPosition",objects);
+        }
     }
 }
