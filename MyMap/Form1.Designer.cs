@@ -39,10 +39,11 @@
             this.clearMarker = new System.Windows.Forms.Button();
             this.textBoxX = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBoxY = new System.Windows.Forms.TextBox();
             this.btnFindPosition = new System.Windows.Forms.Button();
+            this.textBoxY = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -51,7 +52,7 @@
             // 
             this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.webBrowser1.Margin = new System.Windows.Forms.Padding(4);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(27, 25);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(1217, 628);
@@ -82,7 +83,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(185, 15);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 29);
             this.button1.TabIndex = 2;
@@ -93,7 +94,7 @@
             // marker
             // 
             this.marker.Location = new System.Drawing.Point(55, 15);
-            this.marker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.marker.Margin = new System.Windows.Forms.Padding(4);
             this.marker.Name = "marker";
             this.marker.Size = new System.Drawing.Size(100, 29);
             this.marker.TabIndex = 2;
@@ -103,8 +104,8 @@
             // 
             // removeListen
             // 
-            this.removeListen.Location = new System.Drawing.Point(608, 15);
-            this.removeListen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.removeListen.Location = new System.Drawing.Point(451, 15);
+            this.removeListen.Margin = new System.Windows.Forms.Padding(4);
             this.removeListen.Name = "removeListen";
             this.removeListen.Size = new System.Drawing.Size(100, 29);
             this.removeListen.TabIndex = 3;
@@ -115,7 +116,7 @@
             // clearMarker
             // 
             this.clearMarker.Location = new System.Drawing.Point(325, 15);
-            this.clearMarker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.clearMarker.Margin = new System.Windows.Forms.Padding(4);
             this.clearMarker.Name = "clearMarker";
             this.clearMarker.Size = new System.Drawing.Size(100, 29);
             this.clearMarker.TabIndex = 4;
@@ -145,32 +146,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "坐标反查";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(23, 15);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "X:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(141, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(23, 15);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Y:";
-            // 
-            // textBoxY
-            // 
-            this.textBoxY.Location = new System.Drawing.Point(170, 24);
-            this.textBoxY.Name = "textBoxY";
-            this.textBoxY.Size = new System.Drawing.Size(100, 25);
-            this.textBoxY.TabIndex = 8;
-            this.textBoxY.Text = "39.913285";
-            // 
             // btnFindPosition
             // 
             this.btnFindPosition.Location = new System.Drawing.Point(277, 20);
@@ -182,11 +157,49 @@
             this.btnFindPosition.UseVisualStyleBackColor = true;
             this.btnFindPosition.Click += new System.EventHandler(this.btnFindPosition_Click);
             // 
+            // textBoxY
+            // 
+            this.textBoxY.Location = new System.Drawing.Point(170, 24);
+            this.textBoxY.Name = "textBoxY";
+            this.textBoxY.Size = new System.Drawing.Size(100, 25);
+            this.textBoxY.TabIndex = 8;
+            this.textBoxY.Text = "39.913285";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(141, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(23, 15);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Y:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(23, 15);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "X:";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(569, 15);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(140, 29);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "获取测试点坐标";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.btnGetRightClickGPS_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1217, 628);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.clearMarker);
             this.Controls.Add(this.removeListen);
@@ -194,7 +207,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.webBrowser1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -223,6 +236,7 @@
         private System.Windows.Forms.TextBox textBoxY;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

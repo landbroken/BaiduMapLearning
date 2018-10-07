@@ -16,6 +16,12 @@ namespace MyMap
 
     public partial class Form1 : Form
     {
+        #region 参数
+
+        List<PointInfo> m_p;
+
+        #endregion
+
         //初始化控件，固定格式
         public Form1()
         {
@@ -85,7 +91,11 @@ namespace MyMap
         {
             webBrowser1.Document.InvokeScript("ClearAllMarkers");  
         }
-
+        class jwd
+        {
+            string Lng { get; set; }
+            string Lat { get; set; }
+        }
         //坐标反查
         private void btnFindPosition_Click(object sender, EventArgs e)
         {
@@ -95,8 +105,27 @@ namespace MyMap
             objects[0] = Convert.ToDouble(textBoxX.Text);
             //当前纬度
             objects[1] = Convert.ToDouble(textBoxY.Text);
-            //传值给html中的mapInit函数
-            webBrowser1.Document.InvokeScript("FindPosition",objects);
+            //传值给html中的FindPosition函数
+            object bb = webBrowser1.Document.InvokeScript("FindPosition",objects);
+
+        }
+
+        private void btnGetRightClickGPS_Click(object sender, EventArgs e)
+        {
+            //116.380967,39.913285
+            object[] objects = new object[2];
+            //当前经度
+            objects[0] = Convert.ToDouble(textBoxX.Text);
+            //当前纬度
+            objects[1] = Convert.ToDouble(textBoxY.Text);
+            //传值给html中的FindPosition函数
+            object bb = webBrowser1.Document.InvokeScript("GetTest2GPS", objects);
+            object cc = bb;
+        }
+
+        public void LocateInfo(string msg)
+        {
+            string get = msg;
         }
     }
 }
